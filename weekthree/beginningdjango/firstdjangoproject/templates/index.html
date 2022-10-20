@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <title>Welcome to Django Web Development</title>
+</head>
+<body>
+   <h1>Introduction to Django Web Development</h1> 
+   <p>Django is a python backend frame work developed for building web applications</p>
+    <form action="{% url 'firstapp:index' %}" method="post">
+        {% csrf_token %}
+        {% for field in fruitform %}
+        <label for="">{{ field.label_tag }}</label><br><br>
+                      {{ field }} <br><br>
+        {% endfor %}
+        <input type="submit" value="Add Fruit">
+    </form>
+
+   <h2>List of Fruits</h2>
+   {% for listoffruit in fruits %}
+   <h2>{{listoffruit.name}}</h2>
+   <p>{{listoffruit.color}}</p>
+   <p>{{listoffruit.description}}</p>
+   {% endfor %}
+</body>
+</html>
