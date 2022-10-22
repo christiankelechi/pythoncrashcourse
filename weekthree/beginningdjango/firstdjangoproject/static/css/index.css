@@ -1,4 +1,12 @@
-h1{
+h1,p{
     background-color: black;
-    color:white
+    color:white;
+    font-size:59px;
+}
+body{
+    padding: 1rem;
+}
+.myinput{
+    width:90vw;
+    color:blue;
 }
