@@ -8,7 +8,7 @@ def index(request):
     if request.method=="POST":
         fruitform=FruitPost(request.POST)
         if fruitform.is_valid():
-            Fruit.objects.create(name=fruitform.cleaned_data['name'],color=fruitform.cleaned_data['color'],description=fruitform.cleaned_data['description'])
+            Fruit.objects.create(name=request.POST['name'],color=request.POST['color'],description=request.POST['description'])
             context={'fruits':fruits}
             return redirect('firstapp:index')
     else:
